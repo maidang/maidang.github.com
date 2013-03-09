@@ -56,21 +56,29 @@ a:focus {
 Theme Styles
 *******************************************************************************/
 
+@font-face
+{
+	font-family: "Clarendon";
+	src: url("Clarendon.tff");
+	font-smooth: always;
+}
+
 body {
   box-sizing: border-box;
   color:#373737;
   background: #212121;
-  font-size: 14pt;
-  font-family: 'Lucida Grande', Calibri, Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
-  font-weight: 700;
-  color:#222222;
-  font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  /*color:#222222;*/
+  color: #007edf;
+  font-family: 'Clarendon', Calibri, Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
 
@@ -128,12 +136,12 @@ a {
 
 #main_content a:hover {
   color: #0069ba;
-  text-shadow: #0090ff 0px 0px 2px;
+  text-decoration: underline;
 }
 
 footer a:hover {
   color: #43adff;
-  text-shadow: #0090ff 0px 0px 2px;
+  text-decoration: underline;
 }
 
 em {
@@ -144,14 +152,7 @@ strong {
   font-weight: bold;
 }
 
-img {
-  position: relative;
-  margin: 0 auto;
-  max-width: 739px;
-  padding: 5px;
-  margin: 10px 0 10px 0;
-  border: 1px solid #ebebeb;
-
+#main_content_wrap img {
   box-shadow: 0 0 5px #ebebeb;
   -webkit-box-shadow: 0 0 5px #ebebeb;
   -moz-box-shadow: 0 0 5px #ebebeb;
@@ -257,11 +258,12 @@ form {
   background: #f2f2f2;
   padding: 20px;
 }
-
+/*
 img {
   width: 100%;
   max-width: 100%;
 }
+*/
 
 /*******************************************************************************
 Full-Width Styles
@@ -287,10 +289,55 @@ Full-Width Styles
   padding: 10px 50px 10px 10px;
   color: #fff;
   background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
+  /*background: #0090ff;*/
   font-weight: 700;
-  box-shadow: 0 0 10px rgba(0,0,0,.5);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#forkme_banner img {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  line-height: 30px;
+}
+
+.icon  {
+	background: url('../images/icons_sprite_transparent.png');
+	display: block;
+	float: left;
+	height: 32px;
+	width: 32px;
+}
+
+.facebook {
+	background-position: -64px 0px;
+}
+
+.facebook:hover {
+	background: url('../images/icons_sprite_transparent.png') #3B5998;
+	background-position: -64px 0px;
+}
+
+.youtube {
+	background-position: 64px 0px;
+}
+
+.youtube:hover {
+	background: url('../images/icons_sprite_transparent.png') #A2000C;
+	background-position: 64px 0px;
+}
+
+.linkedin {
+	background-position: -128px 0px;
+}
+
+.linkedin:hover {
+	background: url('../images/icons_sprite_transparent.png') #4875B4;
+	background-position: -128px 0px;
 }
 
 #header_wrap {
@@ -303,14 +350,35 @@ Full-Width Styles
 }
 
 #header_wrap .inner {
-  padding: 50px 10px 30px 10px;
+  padding: 50px 10px 0px 10px;
+}
+
+#navigation {
+	text-align: right;
+	padding: 0;
+	margin: 0;
+	color: white;
+}
+
+nav#navigation li {
+	display: inline-block;
+	list-style: none;
+	text-transform: uppercase;
+}
+
+nav#navigation a {
+	color: white;
+}
+
+nav#navigation a:hover {
+	text-decoration: underline;
 }
 
 #project_title {
   margin: 0;
   color: #fff;
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 500;
   text-shadow: #111 0px 0px 10px;
 }
 
