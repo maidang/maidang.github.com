@@ -55,11 +55,21 @@ a:focus {
 /*******************************************************************************
 Theme Styles
 *******************************************************************************/
-
+/*
 @font-face
 {
 	font-family: "Clarendon";
 	src: url("Clarendon.tff");
+	font-smooth: always;
+}*/
+
+@font-face {
+    font-family: 'Clarendon';
+    src: url('fonts/clarendon-webfont.eot');
+    src: url('fonts/clarendon-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clarendon-webfont.woff') format('woff'),
+         url('fonts/clarendon-webfont.ttf') format('truetype'),
+         url('fonts/clarendon-webfont.svg#clarendon_btroman') format('svg');
 	font-smooth: always;
 }
 
@@ -85,6 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 36px;
   font-weight: 700;
+  line-height: 40px;
 }
 
 h2 {
@@ -290,7 +301,7 @@ Full-Width Styles
   top:0;
   right: 10px;
   z-index: 10;
-  padding: 10px 50px 10px 10px;
+  padding: 10px 20px 10px 20px;
   color: #fff;
   background: #008C05;
   font-weight: 700;
@@ -300,11 +311,6 @@ Full-Width Styles
   line-height: 30px;
 }
 
-#forkme_banner span:hover {
-	text-decoration: underline;
-	cursor: pointer;
-}
-
 #forkme_banner img {
   position: relative;
   padding: 0;
@@ -312,7 +318,7 @@ Full-Width Styles
   border: 0;
   line-height: 30px;
   vertical-align: bottom;
-  margin: 0px 10px 0px 5px;
+  margin: 0px 10px 0px 0px;
 }
 
 .button {
@@ -350,12 +356,10 @@ nav#navigation a {
 	color: white;
 }
 
-nav#navigation a:hover {
-	text-decoration: underline;
-}
 
 #project_title {
   margin: 0;
+  padding: 0;
   color: #fff;
   font-size: 60px;
   font-weight: 500;

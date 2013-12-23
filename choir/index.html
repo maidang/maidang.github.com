@@ -1,5 +1,5 @@
 <!--
-Shoooooot ah don't look at the source! it's not ready for primetime!!
+it's not ready for primetime!!
 -->
 
 <!DOCTYPE html>
@@ -10,8 +10,9 @@ Shoooooot ah don't look at the source! it's not ready for primetime!!
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Mai Dang personal site" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/christmas.css">
-
+    <link type="text/css" media="screen" href="../stylesheets/christmas.css" rel="stylesheet" >
+	<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js" type="text/javascript"></script>
+	<script src="../javascripts/christmas.js" type="text/javascript"></script>
     <title>Merry Christmas</title>
   </head>
 
@@ -22,12 +23,13 @@ Shoooooot ah don't look at the source! it's not ready for primetime!!
         <header class="inner">
 			
 		<div id="forkme_banner">
-			<img src="..\images\play.png"/ class="button">
-			<span>Play Music</span>
+			<img src="../images/play.png" class="button" id="audioButton">
+			<span id="audioText">Play Music</span>
+			<audio src="../audio/ChristmasAtCarnegieHall_128.mp3" id="audioPlayer" preload="auto"></audio>
 		 </div>
 		 
           <h1 id="project_title">Merry Christmas</h1>
-          <!--<h2 id="tagline"></h2>-->
+          <h2 id="project_tagline">and a Happy New Year</h2>
         </header>
     </div>
 
