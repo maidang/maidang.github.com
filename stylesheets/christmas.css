@@ -86,8 +86,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 500;
-  /*color:#222222;*/
-  color: #008C05;
+  color: white;
   font-family: 'Clarendon', Calibri, Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
@@ -276,7 +275,7 @@ img {
 }
 */
 
-#signature  {
+.signature  {
 	text-align: right;
 }
 
@@ -417,6 +416,7 @@ nav#navigation a {
   /*background: #570000;*/
   background: #111;
   border-top: 1px solid #111;
+  margin-bottom: 30px;
 }
 
 #main_content {
