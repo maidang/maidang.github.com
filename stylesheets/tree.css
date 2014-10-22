@@ -1,0 +1,47 @@
+html
+{
+	min-height: 100%;
+}
+
+body {
+	font: 14pt Georgia;
+	margin: 0;
+	height: 100%;
+}
+
+#data, #tree {
+	float: left;
+	padding: 0 30px 0 30px;
+	height: 100%;
+}
+
+#data {
+	background-color: #AAA;
+	width: 410px;
+	position: absolute;
+}
+
+#tree {
+	position: absolute;
+	left: 480px;
+}
+
+button {
+	font: 24pt Arial;
+	font-weight: bold;
+	padding: 0 10px 0 10px;
+}
+
+textarea {
+	border: 5px solid #888;
+}
+
+.personNode {
+	background-color: #CCC;
+	height: 60px;
+	width: 200px;
+	border: 5px solid #AAA;
+	font: 20pt Georgia;
+	text-align: center;
+	line-height: 60px;
+}
