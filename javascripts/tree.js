@@ -7,7 +7,6 @@ function generateTree(e)
 {
 	enterLoadState();
 	
-	// magic happens here
 	var xmlStr = $("treeXml").value;
 	if (!xmlStr)
 	{
@@ -27,22 +26,72 @@ function generateTree(e)
 	leaveLoadState();
 }
 
+// Returns xPos of most recent descendant (the rightmost descendant)
 function drawFamily(doc, root, xPos, yPos)
 {
+	if (!root)
+	{
+		return xPos;
+	}
+	
+	var spouseXPos = xPos;
+	var childXPos = xPos;
+	
 	// draw main person
 	drawPerson(root, xPos, yPos);
-	var spouseNodes = doc.evaluate("/person[@type='spouse']", root, null, XPathResult.STRING_TYPE, null);
-	if (spouseNodes.length > 0)
+	
+	// draw spouse (if present)
+	var spouseNodes = doc.evaluate("./person[@type='spouse']", root, null, 9, null);
+	var spouse = spouseNodes.singleNodeValue;
+	if (spouse)
 	{
-		//drawSpouse(spouseNode[0], xPos
+		spouseXPos = drawSpouse(spouse, xPos, yPos);
 	}
 	
-	var childNodes = doc.evaluate("/person[@type='child']", root, null, XPathResult.STRING_TYPE, null);
-	
-	for (var child in childNodes)
+	// draw children (if present)
+	var childNodes = doc.evaluate("./person[@type='child']", root, null, 7, null);
+	var hasChildren = childNodes.snapshotLength > 0;
+	for (var i = 0; i < childNodes.snapshotLength; i++)
 	{
-		// identify if child or spouse
+		var updatedChildXPos = drawFamily(doc, childNodes.snapshotItem(i), childXPos, yPos + 160);//drawPerson(childNodes.snapshotItem(i), xPos, yPos + 160);
+		
+		var childBar = document.createElement("div");
+		childBar.addClassName("treeBarVertical");
+		childBar.style.left = (childXPos + 100) + "px";
+		childBar.style.top = (yPos + 100) + "px";
+		childBar.style.height = "50px";
+		$("familytree").appendChild(childBar);
+		
+		childXPos = updatedChildXPos + 250;
 	}
+	
+	if (hasChildren)
+	{
+		var hasOneChild = childNodes.snapshotLength == 1;
+		var childrenBar = document.createElement("div");
+		childrenBar.addClassName("treeBar");
+		childrenBar.style.left = (xPos + 100) + "px";
+		childrenBar.style.top = (yPos + 100) + "px";
+		childrenBar.style.width = (childXPos - xPos - (hasOneChild ? 70 : 250)) + "px";
+		$("familytree").appendChild(childrenBar);
+		
+		if (spouse)
+		{
+			// vertical line should stem from marriage
+			var vBar = document.createElement("div");
+			vBar.addClassName("treeBarVertical");
+			vBar.style.left = (xPos + 200 + 70) + "px";
+			vBar.style.top = (yPos + 30) + "px";
+			vBar.style.height = "70px";
+			$("familytree").appendChild(vBar);
+		}
+		else
+		{
+			
+		}
+	}
+	
+	return Math.max(spouseXPos, childXPos);
 }
 
 function drawPerson(node, xPos, yPos)
@@ -57,15 +106,26 @@ function drawPerson(node, xPos, yPos)
 
 function drawSpouse(node, xPos, yPos)
 {
+	var marriageBar = document.createElement("div");
+	marriageBar.addClassName("treeBar");
+	marriageBar.style.left = (xPos + 200 + 30) + "px";
+	marriageBar.style.top = (yPos + 30) + "px";
+	marriageBar.style.width = "100px"
+	$("familytree").appendChild(marriageBar);
 	
+	var spouseXPos = xPos + 200 + 100 + 50;
+	drawPerson(node, spouseXPos, yPos);
+	return spouseXPos;
 }
 
 function enterLoadState()
 {
 	$("generate").disabled = true;
+	
 	var loading = document.createElement("img");
 	loading.id = "loading";
 	loading.src = "../images/loader.gif";
+	$("familytree").innerHTML = "";
 	$("familytree").appendChild(loading);
 }
 

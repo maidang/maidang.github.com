@@ -4,7 +4,7 @@ html
 }
 
 body {
-	font: 14pt Georgia;
+	font: 14pt "Lucida Sans";
 	margin: 0;
 	height: 100%;
 }
@@ -27,13 +27,24 @@ body {
 }
 
 button {
-	font: 24pt Arial;
+	font: 24pt "Lucida Sans";
 	font-weight: bold;
 	padding: 0 10px 0 10px;
+	background-color: #DDD;
+	border: 3px solid #888;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #76CF7C;
 }
 
 textarea {
 	border: 5px solid #888;
+}
+
+#familytree {
+	position: relative;
 }
 
 .personNode {
@@ -41,7 +52,21 @@ textarea {
 	height: 60px;
 	width: 200px;
 	border: 5px solid #AAA;
-	font: 20pt Georgia;
+	font-size: 20pt;
 	text-align: center;
 	line-height: 60px;
+	position: absolute;
+	border-radius: 30px;
+}
+
+.treeBar {
+	background-color: #DDD;
+	height: 10px;
+	position: absolute;
+}
+
+.treeBarVertical {
+	background-color: #DDD;
+	width: 10px;
+	position: absolute;
 }
