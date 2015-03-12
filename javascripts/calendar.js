@@ -1,3 +1,9 @@
+/*
+Stendig calendar!
+todo: make current day "active"
+auto-adjust calendar height to # of days
+*/
+
 var MONTHS = [
 	"January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"
 ];
@@ -25,7 +31,7 @@ function buildCalendar() {
 	var year = today.getFullYear();
 	
 	// display year and month
-	$("calendar_month").innerHTML = year + " " + MONTHS[month - 1];
+	$("calendar_month").innerHTML = year + " " + MONTHS[month];
 	
 	// generate calendar
 	var firstWeekday = getWeekday(1, month, year);
@@ -45,7 +51,7 @@ function buildCalendar() {
 				currentRow = document.createElement("tr");
 			}	
 		}
-		
+
 		i++;
 	}
 	
